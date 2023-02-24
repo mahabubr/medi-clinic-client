@@ -1,0 +1,38 @@
+.small-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.small-card-container-nested {
+    padding: 30px;
+    width: 100%;
+    border-left: 1px solid gray;
+    border-bottom: 1px solid gray;
+    position: relative;
+    overflow: hidden;
+    height: 180px;
+}
+
+.small-card-container-nested:hover svg {
+    filter: blur(2px);
+}
+
+.small-card-container-nested svg {
+    position: absolute;
+    right: -30px;
+    bottom: -30px;
+    width: 60%;
+    opacity: 0.2;
+}
+
+.small-card-container-nested button {
+    position: absolute;
+    bottom: -50px;
+    transition: 0.5s all;
+    margin-top: 5px;
+}
+
+.small-card-container-nested:hover button {
+    bottom: 20px;
+}

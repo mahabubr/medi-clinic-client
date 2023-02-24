@@ -1,0 +1,56 @@
+[
+	{
+		"img": "https://i.ibb.co/0s6BxdL/1.jpg",
+		"name": "Rashel Chowdhury",
+		"designation": "Physiotherapy Specialist",
+		"email": "rashel@chowdhury.com",
+		"phone": "111 222 3333",
+		"hospital_name": "Olives Physiotherapy Center",
+		"time_to_sit": "5 PM - 10 PM"
+	},
+	{
+		"img": "https://i.ibb.co/4pWRXpQ/2.jpg",
+		"name": "Zahid Hossain",
+		"designation": "Physical Medicine",
+		"email": "zahid@hossain.com",
+		"phone": "111 222 3333",
+		"hospital_name": "Ibn Sina Diagnostic",
+		"time_to_sit": "1 AM - 10 AM"
+	},
+	{
+		"img": "https://i.ibb.co/qJ5NvKr/3.jpg",
+		"name": "M A Mamun",
+		"designation": "Orthopedics-NITOR",
+		"email": "ma@mamub.com",
+		"phone": "111 222 3333",
+		"hospital_name": "Orthopedic Rehabilitation",
+		"time_to_sit": "8 PM - 10 PM"
+	},
+	{
+		"img": "https://i.ibb.co/K56zFKT/4.jpg",
+		"name": "Murshed Mamun",
+		"designation": "FCPS Medicine",
+		"email": "murshed@mamun.com",
+		"phone": "111 222 3333",
+		"hospital_name": "Medical University Hospital",
+		"time_to_sit": "12 PM - 10 PM"
+	},
+	{
+		"img": "https://i.ibb.co/BgWpZDn/5.jpg",
+		"name": "Shahriyar Porosh",
+		"designation": "Oral & Maxillofacial Surgery",
+		"email": "shahriyar@porosh.com",
+		"phone": "111 222 3333",
+		"hospital_name": "Rajshahi Medical Assistant",
+		"time_to_sit": "2 PM - 5 PM"
+	},
+	{
+		"img": "https://i.ibb.co/RHtWTL1/6.jpg",
+		"name": "Shohela Perveen",
+		"designation": "Surgery & Hysteroscopy",
+		"email": "shohela@perveen.com",
+		"phone": "111 222 3333",
+		"hospital_name": "OGSB Hospital",
+		"time_to_sit": "8 AM - 10 PM"
+	}
+]

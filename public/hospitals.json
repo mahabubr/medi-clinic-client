@@ -1,0 +1,34 @@
+[
+	{
+		"img": "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=873&q=80",
+		"name": "Mayo Clinic",
+		"description": "is worth to note that the rating assigned to a doctor or health facility is obtained by averaging single judgments assigned to dif- ferent aspects.",
+		"location": "Rochester, United States",
+		"ratting": 4.3,
+		"phone": "111 222 3333"
+	},
+	{
+		"img": "https://images.unsplash.com/photo-1626315869436-d6781ba69d6e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+		"name": "Toronto General",
+		"description": "For example, Fig. 4 shows the different judgments assigned to aspects of a hospital, such as expertise, presence, clean- liness , and facilities",
+		"location": "Toronto, Canada",
+		"ratting": 3.8,
+		"phone": "111 222 3333"
+	},
+	{
+		"img": "https://images.unsplash.com/photo-1586773860383-dab5f3bc1bcc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=827&q=80",
+		"name": "Universitätsmedizin Berlin",
+		"description": "A hospital is a health care institution providing patient treatment with specialized health science and auxiliary healthcare staff and medical equipment.",
+		"location": "Berlin, Germany",
+		"ratting": 3.3,
+		"phone": "111 222 3333"
+	},
+	{
+		"img": "https://images.unsplash.com/photo-1596541223130-5d31a73fb6c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80",
+		"name": "Rigshospitalet",
+		"description": "[2] The best-known type of hospital is the general hospital, which typically has an emergency department to treat urgent health problems ranging",
+		"location": "København, Denmark",
+		"ratting": 5,
+		"phone": "111 222 3333"
+	}
+]
