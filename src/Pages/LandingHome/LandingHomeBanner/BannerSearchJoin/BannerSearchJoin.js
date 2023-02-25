@@ -439,10 +439,23 @@ const BannerSearchJoin = () => {
     ];
 
     return (
-        <Box sx={{ width: '80%', margin: '0px auto', mt: 5, display: 'grid', gridTemplateColumns: '1fr 1fr 1fr' }}>
+        <Box sx={{
+            width: {
+                xs: '100%',
+                md: '80%'
+            }, margin: '0px auto', mt: 5, display: 'grid', gridTemplateColumns: {
+                xs: '1fr',
+                md: '1fr 1fr 1fr'
+            }
+        }}>
             <Box sx={{ backgroundColor: '#ffffff', p: 5, gridColumnEnd: 'span 2', boxShadow: '5px 5px 15px #DDDDDD' }}>
                 <Typography variant='h5' fontWeight={800} mb={2} color={'#2B3467'}>Start Your Search</Typography>
-                <Box sx={{ display: 'flex', gap: '10px', justifyContent: 'center', alignItems: 'center' }}>
+                <Box sx={{
+                    display: {
+                        xs: 'block',
+                        sm: 'flex'
+                    }, gap: '10px', justifyContent: 'center', alignItems: 'center'
+                }}>
                     <TextField fullWidth id="outlined-basic" label="Search Doctors, Shop and Hospitals etc..." variant="outlined" />
                     <Autocomplete
                         id="country-select-demo"
@@ -464,6 +477,12 @@ const BannerSearchJoin = () => {
                         )}
                         renderInput={(params) => (
                             <TextField
+                                sx={{
+                                    mt: {
+                                        xs: 2,
+                                        sm: 0
+                                    }
+                                }}
                                 {...params}
                                 label="Select Location"
                                 inputProps={{
@@ -473,9 +492,16 @@ const BannerSearchJoin = () => {
                             />
                         )}
                     />
-                    <PrimaryButton>
-                        <BiSearchAlt2 fontSize={30} />
-                    </PrimaryButton>
+                    <Box sx={{
+                        mt: {
+                            xs: 2,
+                            sm: 0
+                        }
+                    }}>
+                        <PrimaryButton>
+                            <BiSearchAlt2 fontSize={30} />
+                        </PrimaryButton>
+                    </Box>
                 </Box>
                 <Box onClick={toggleDrawer} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 4 }}>
                     <GoSettings fontSize={25} />
@@ -492,7 +518,7 @@ const BannerSearchJoin = () => {
                 onClose={toggleDrawer}
                 direction='right'
                 className='bla bla bla'
-                style={{width: '40%'}}
+                style={{ width: '40%' }}
             ></Drawer>
         </Box>
     );

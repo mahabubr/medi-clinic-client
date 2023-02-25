@@ -8,7 +8,13 @@ import { IoLogoGooglePlaystore } from 'react-icons/io5';
 const Footer = () => {
     return (
         <Box sx={{ mt: 10 }}>
-            <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', placeItems: 'center', backgroundColor: '#C0EEF2', p: 10 }}>
+            <Box sx={{
+                display: 'grid', gridTemplateColumns: {
+                    xs: 'repeat(1, 1fr)',
+                    sm: 'repeat(2, 1fr)',
+                    md: 'repeat(4, 1fr)',
+                }, placeItems: 'center', backgroundColor: '#C0EEF2', p: 10
+            }}>
                 <Box>
                     <Typography variant='h5'>By Specialty</Typography>
                     <Typography variant='subtitle1'>Allergy & Immunology</Typography>
@@ -46,7 +52,13 @@ const Footer = () => {
                     <Typography color={'#537FE7'} fontWeight={600} sx={{ cursor: 'pointer' }} variant='subtitle1'>View All</Typography>
                 </Box>
             </Box>
-            <Box sx={{ backgroundColor: '#393053', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', placeItems: 'stretch', p: 10 }}>
+            <Box sx={{
+                backgroundColor: '#393053', display: 'grid', gridTemplateColumns: {
+                    xs: 'repeat(1, 1fr)',
+                    sm: 'repeat(2, 1fr)',
+                    md: 'repeat(3, 1fr)',
+                }, placeItems: 'stretch', p: 10
+            }}>
                 <Box>
                     <Typography color={'whitesmoke'} variant='h5'>Connect Us</Typography>
                     <Box sx={{ display: 'flex', gap: '10px', mt: 3 }}>

@@ -12,7 +12,12 @@ const LandingPageCountDown = () => {
         <Box sx={{ width: '90%', margin: '0 auto', mt: 10 }}>
             <ContainerSubTitleText>Convenient Heart</ContainerSubTitleText>
             <ContainerTitleText>Our Statistics</ContainerTitleText>
-            <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 5, mt: 6 }}>
+            <Box sx={{ display: 'grid', gridTemplateColumns: {
+                xs: 'repeat(1, 1fr)',
+                sm: 'repeat(2, 1fr)',
+                md: 'repeat(3, 1fr)',
+                lg: 'repeat(5, 1fr)',
+            }, gap: 5, mt: 6 }}>
                 <Box sx={{ textAlign: 'center', backgroundColor: '#EFF5F5', '&:hover': { backgroundColor: '#ffffff' }, p: 4, transition: 'all 0.5s', cursor: 'grab', borderRadius: '8px', boxShadow: '0 0 10px grey' }}>
                     <IoCalendarNumberOutline fontSize={50} color="#3F979B" />
                     <LandingCountUpText1>

@@ -18,8 +18,19 @@ const LatestNews = () => {
             <Box>
                 <ContainerSubTitleText>Latest News</ContainerSubTitleText>
                 <ContainerTitleText>Be The First To Read</ContainerTitleText>
-                <Box sx={{ mt: 4, display: 'grid', gridTemplateColumns: '3fr 1fr', gap: 5 }}>
-                    <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 5 }}>
+                <Box sx={{
+                    mt: 4, display: 'grid', gridTemplateColumns: {
+                        xs: '1fr',
+                        md: '3fr 1fr',
+                    }, gap: 5
+                }}>
+                    <Box sx={{
+                        display: 'grid', gridTemplateColumns: {
+                            xs: 'repeat(1, 1fr)',
+                            sm: 'repeat(2, 1fr)',
+                            lg: 'repeat(3, 1fr)',
+                        }, gap: 5
+                    }}>
                         {
                             news?.map((n, i) => <Box key={i}>
                                 <img style={{ height: '200px', width: '100%', objectFit: 'cover' }} src={n.img} alt="" />
@@ -28,7 +39,7 @@ const LatestNews = () => {
                                     <Typography ml={1}>{n.date}</Typography>
                                 </Box>
                                 <Typography height={50} fontWeight={700} color={'#161853'} variant='h6' mt={2}>{n.title.slice(0, 30)}...</Typography>
-                                <Typography variant='subtitle1' color={'GrayText'} mt={2}>{n.description.slice(0, 80)}...</Typography>
+                                <Typography variant='subtitle1' height={80} color={'GrayText'} mt={2}>{n.description.slice(0, 80)}...</Typography>
                             </Box>)
                         }
                     </Box>
@@ -41,7 +52,7 @@ const LatestNews = () => {
                             </Box>
                         </Box>
                         <Box mt={5}>
-                            <img style={{height: '400px', width: '100%', objectFit: 'cover'}} src="https://plus.unsplash.com/premium_photo-1674841252164-5f0ba609d623?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="" />
+                            <img style={{ height: '400px', width: '100%', objectFit: 'cover' }} src="https://plus.unsplash.com/premium_photo-1674841252164-5f0ba609d623?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="" />
                             <Box sx={{ pt: 2 }}>
                                 <Typography color={'#3E54AC'} fontWeight={700} variant='h5'>Medicine</Typography>
                                 <Typography color={'grey'} variant='subtitle1'>Medicine with individual approach</Typography>

@@ -23,7 +23,12 @@ const AllSectionTab = () => {
             <ContainerSubTitleText>Explore</ContainerSubTitleText>
             <ContainerTitleText>Our Category</ContainerTitleText>
             <Box
-                sx={{ flexGrow: 1, display: 'flex', mt: 5 }}
+                sx={{
+                    flexGrow: 1, display: {
+                        xs: 'block',
+                        lg: 'flex'
+                    }, mt: 5
+                }}
             >
                 <Tabs
                     orientation="vertical"

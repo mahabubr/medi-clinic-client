@@ -21,9 +21,9 @@ import { BsMicrosoft } from 'react-icons/bs';
 
 const InsurancePlan = () => {
     return (
-        <Box sx={{ mt: 10 }}>
+        <Box sx={{ mt: 10, width: '90%', margin: '100px auto' }}>
             <ContainerSubTitleText>Please call us at 111-222-333 and we’ll help you out,</ContainerSubTitleText>
-            <ContainerTitleText>We accept all major insurance plans.</ContainerTitleText>
+            <ContainerTitleText>insurance plans.</ContainerTitleText>
             <Box sx={{ mt: 6 }}>
                 <Swiper
                     slidesPerView={6}
@@ -32,6 +32,15 @@ const InsurancePlan = () => {
                     speed={500}
                     modules={[Scrollbar, Autoplay]}
                     className="mySwiper"
+                    breakpoints={
+                        {
+                            200: { slidesPerView: 2 },
+                            700: { slidesPerView: 2 },
+                            750: { slidesPerView: 3 },
+                            1000: { slidesPerView: 4 },
+                            1400: { slidesPerView: 6 },
+                        }
+                    }
                 >
                     <SwiperSlide>
                         <FaGooglePay fontSize={100} color="#7B8FA1" />

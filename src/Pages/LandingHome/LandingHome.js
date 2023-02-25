@@ -12,7 +12,7 @@ import TherapyServices from './TherapyServices/TherapyServices';
 
 const LandingHome = () => {
     return (
-        <Box>
+        <Box sx={{ overflowX: 'hidden' }}>
             <LandingHomeBanner></LandingHomeBanner>
             <BannerSearchJoin></BannerSearchJoin>
             <LandingSmallCard></LandingSmallCard>

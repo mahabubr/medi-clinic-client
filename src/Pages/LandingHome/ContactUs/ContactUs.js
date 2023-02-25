@@ -13,7 +13,14 @@ const ContactUs = () => {
         <Box sx={{ width: '80%', margin: '0 auto', mt: 10 }}>
             <ContainerSubTitleText>Get In Touch</ContainerSubTitleText>
             <ContainerTitleText>Contact Us</ContainerTitleText>
-            <Box sx={{ mt: 5, display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', height: '350px' }}>
+            <Box sx={{
+                mt: 5, display: 'grid', gridTemplateColumns: {
+                    xs: 'repeat(1, 1fr)',
+                    sm: 'repeat(1, 1fr)',
+                    md: 'repeat(2, 1fr)',
+                    lg: 'repeat(3, 1fr)',
+                },
+            }}>
                 <Box>
                     <Map height={350} defaultCenter={[24.8481, 89.3730]} defaultZoom={10}>
                         <Marker width={50} anchor={[24.8481, 89.3730]} />

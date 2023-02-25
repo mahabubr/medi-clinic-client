@@ -14,7 +14,14 @@ const Medicine = () => {
     }, [])
 
     return (
-        <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2, mt: 5, width: '100%' }}>
+        <Box sx={{
+            display: 'grid', gridTemplateColumns: {
+                xs: 'repeat(1, 1fr)',
+                sm: 'repeat(2, 1fr)',
+                md: 'repeat(3, 1fr)',
+                lg: 'repeat(4, 1fr)',
+            }, gap: 2, mt: 5, width: '100%'
+        }}>
             {
                 medicine?.map((n, i) =>
                     <Box key={i} sx={{ border: '1px solid #A7727D' }}>

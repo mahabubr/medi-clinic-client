@@ -23,6 +23,14 @@ const LandingSmallCard = () => {
                 speed={1200}
                 modules={[Scrollbar, Autoplay]}
                 className="mySwiper"
+                breakpoints={
+                    {
+                        200: { slidesPerView: 1 },
+                        700: { slidesPerView: 2 },
+                        992: { slidesPerView: 3 },
+                        1400: { slidesPerView: 5 },
+                    }
+                }
             >
                 <div className='small-card-container'>
                     <SwiperSlide>
