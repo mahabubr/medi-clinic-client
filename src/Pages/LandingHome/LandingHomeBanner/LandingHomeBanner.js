@@ -4,6 +4,8 @@ import doctor1 from '../../../Assets/doctor/1.png'
 import doctor2 from '../../../Assets/doctor/2.png'
 import doctor3 from '../../../Assets/doctor/3.png'
 
+import './LandingHomeBanner.css'
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -27,46 +29,185 @@ const LandingHomeBanner = () => {
                 modules={[Pagination, Autoplay]}
             >
                 <SwiperSlide style={{ backgroundImage: `url(${pic})`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
-                    <Box sx={{ p: 4, display: 'flex', justifyContent: 'center', alignItems: 'center', width: "80%", margin: '0 auto' }}>
-                        <Box sx={{ width: '50%' }}>
-                            <img src={doctor1} alt="" />
+                    <Box sx={{
+                        p: 4, display: {
+                            sx: 'block',
+                            md: 'flex'
+                        }, justifyContent: 'center', alignItems: 'center', width: "80%", margin: '0 auto'
+                    }}>
+                        <Box sx={{
+                            width: {
+                                xs: '50%',
+                                md: '50%'
+                            }
+                        }}>
+                            <img className='landingHomeBannerImg' src={doctor1} alt="" />
                         </Box>
-                        <Box sx={{ width: '50%' }}>
-                            <Typography variant='h4' color={'#EB455F'} fontWeight={700}>Emergency ?</Typography>
-                            <Typography variant='h3' fontWeight={600} color={'#2B3467'}>Find Nearest Medical Shops</Typography>
-                            <Box mt={4}>
-                                <PrimaryButton style={{ marginRight: '20px' }}>Shops Info</PrimaryButton>
-                                <SecondaryButton>View Shops</SecondaryButton>
+                        <Box sx={{
+                            width: {
+                                xs: '100%',
+                                md: '50%'
+                            }
+                        }}>
+                            <Typography variant='h4' color={'#EB455F'} fontSize={{
+                                xs: 20,
+                                sm: 30,
+                                md: 35,
+                            }} fontWeight={600}>Emergency ?</Typography>
+                            <Typography variant='h3' fontWeight={600} fontSize={{
+                                xs: 25,
+                                sm: 35,
+                                md: 45,
+                            }} color={'#2B3467'}>Find Nearest Shop</Typography>
+                            <Box sx={{
+                                display: {
+                                    sx: 'block',
+                                    sm: 'flex',
+                                    md: 'flex'
+                                }
+                            }} mt={
+                                {
+                                    xs: 1,
+                                    sm: 2,
+                                    md: 4,
+                                }
+                            }>
+                                <Box>
+                                    <PrimaryButton style={{ marginRight: '20px' }}>Shops Info</PrimaryButton>
+                                </Box>
+                                <Box mt={
+                                    {
+                                        xs: 2,
+                                        sm: 0,
+                                        md: 0,
+                                    }
+                                }>
+                                    <SecondaryButton >View Shops</SecondaryButton>
+                                </Box>
                             </Box>
                         </Box>
                     </Box>
                 </SwiperSlide>
                 <SwiperSlide style={{ backgroundImage: `url(${pic})`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
-                    <Box sx={{ p: 4, display: 'flex', justifyContent: 'center', alignItems: 'center', width: "80%", margin: '0 auto' }}>
-                        <Box sx={{ width: '50%' }}>
-                            <img src={doctor2} alt="" />
+                    <Box sx={{
+                        p: 4, display: {
+                            sx: 'block',
+                            md: 'flex'
+                        }, justifyContent: 'center', alignItems: 'center', width: {
+
+                        }, margin: '0 auto'
+                    }}>
+                        <Box sx={{
+                            width: {
+                                xs: '50%',
+                                md: '50%'
+                            }
+                        }}>
+                            <img className='landingHomeBannerImg' src={doctor2} alt="" />
                         </Box>
-                        <Box sx={{ width: '50%' }}>
-                            <Typography variant='h4' color={'#EB455F'} fontWeight={700}>Emergency ?</Typography>
-                            <Typography variant='h3' fontWeight={600} color={'#2B3467'}>Find Nearest Hospitals</Typography>
-                            <Box mt={4}>
-                                <PrimaryButton style={{ marginRight: '20px' }}>Hospitals Info</PrimaryButton>
-                                <SecondaryButton>View Hospitals</SecondaryButton>
+                        <Box sx={{
+                            width: {
+                                xs: '100%',
+                                md: '50%'
+                            }
+                        }}>
+                            <Typography variant='h4' color={'#EB455F'} fontSize={{
+                                xs: 20,
+                                sm: 30,
+                                md: 35,
+                            }} fontWeight={600}>Emergency ?</Typography>
+                            <Typography variant='h3' fontWeight={600} fontSize={{
+                                xs: 25,
+                                sm: 35,
+                                md: 45,
+                            }} color={'#2B3467'}>Find Nearest Doctors</Typography>
+                            <Box sx={{
+                                display: {
+                                    sx: 'block',
+                                    sm: 'flex',
+                                    md: 'flex'
+                                }
+                            }} mt={
+                                {
+                                    xs: 1,
+                                    sm: 2,
+                                    md: 4,
+                                }
+                            }>
+                                <Box>
+                                    <PrimaryButton style={{ marginRight: '20px' }}>Doctors Info</PrimaryButton>
+                                </Box>
+                                <Box mt={
+                                    {
+                                        xs: 2,
+                                        sm: 0,
+                                        md: 0,
+                                    }
+                                }>
+                                    <SecondaryButton >View Doctors</SecondaryButton>
+                                </Box>
                             </Box>
                         </Box>
                     </Box>
                 </SwiperSlide>
                 <SwiperSlide style={{ backgroundImage: `url(${pic})`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
-                    <Box sx={{ p: 4, display: 'flex', justifyContent: 'center', alignItems: 'center', width: "80%", margin: '0 auto' }}>
-                        <Box sx={{ width: '50%' }}>
-                            <img src={doctor3} alt="" />
+                    <Box sx={{
+                        p: 4, display: {
+                            sx: 'block',
+                            md: 'flex'
+                        }, justifyContent: 'center', alignItems: 'center', width: {
+
+                        }, margin: '0 auto'
+                    }}>
+                        <Box sx={{
+                            width: {
+                                xs: '50%',
+                                md: '50%'
+                            }
+                        }}>
+                            <img className='landingHomeBannerImg' src={doctor3} alt="" />
                         </Box>
-                        <Box sx={{ width: '50%' }}>
-                            <Typography variant='h4' color={'#EB455F'} fontWeight={700}>Emergency ?</Typography>
-                            <Typography variant='h3' fontWeight={600} color={'#2B3467'}>Find Nearest Doctors</Typography>
-                            <Box mt={4}>
-                                <PrimaryButton style={{ marginRight: '20px' }}>Doctors Info</PrimaryButton>
-                                <SecondaryButton>Contact Doctors</SecondaryButton>
+                        <Box sx={{
+                            width: {
+                                xs: '100%',
+                                md: '50%'
+                            }
+                        }}>
+                            <Typography variant='h4' color={'#EB455F'} fontSize={{
+                                xs: 20,
+                                sm: 30,
+                                md: 35,
+                            }} fontWeight={600}>Emergency ?</Typography>
+                            <Typography variant='h3' fontWeight={600} fontSize={{
+                                xs: 25,
+                                sm: 35,
+                                md: 45,
+                            }} color={'#2B3467'}>Find Nearest Hospital</Typography>
+                            <Box sx={{
+                                display: {
+                                    sx: 'block',
+                                    sm: 'flex',
+                                    md: 'flex'
+                                }
+                            }} mt={
+                                {
+                                    xs: 1,
+                                    sm: 2,
+                                    md: 4,
+                                }
+                            }>
+                                <Box>
+                                    <PrimaryButton style={{ marginRight: '20px' }}>Hospital Info</PrimaryButton>
+                                </Box>
+                                <Box mt={
+                                    {
+                                        xs: 2,
+                                        sm: 0,
+                                        md: 0,
+                                    }
+                                }>
+                                    <SecondaryButton >View Hospital</SecondaryButton>
+                                </Box>
                             </Box>
                         </Box>
                     </Box>

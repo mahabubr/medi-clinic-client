@@ -11,12 +11,18 @@ import Drawer from 'react-modern-drawer'
 
 //import styles 👇
 import 'react-modern-drawer/dist/index.css'
+import { AiOutlineAlignRight } from 'react-icons/ai';
 
 const LandingHomeNavbar = () => {
 
     const [isOpen, setIsOpen] = useState(false)
     const toggleDrawer = () => {
         setIsOpen((prevState) => !prevState)
+    }
+
+    const [searchIsOpen, setSearchIsOpen] = useState(false)
+    const searchToggleDrawer = () => {
+        setSearchIsOpen((prevState) => !prevState)
     }
 
     return (
@@ -29,8 +35,21 @@ const LandingHomeNavbar = () => {
                     </Link>
                     <Typography variant='h5' fontWeight={700} color={'#0081B4'}>Medi Clinic</Typography>
                 </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <BiSearchAlt2 onClick={toggleDrawer} fontSize={30} style={{ marginRight: '10px', cursor: 'pointer' }} />
+                <Box sx={{
+                    display: {
+                        xs: 'flex',
+                        md: 'none',
+                    }, alignItems: 'center'
+                }}>
+                    <AiOutlineAlignRight onClick={toggleDrawer} fontSize={30} cursor='pointer' />
+                </Box>
+                <Box sx={{
+                    display: {
+                        xs: 'none',
+                        md: 'flex',
+                    }, alignItems: 'center'
+                }}>
+                    <BiSearchAlt2 onClick={searchToggleDrawer} fontSize={30} style={{ marginRight: '10px', cursor: 'pointer' }} />
                     <Link to='/register'>
                         <SecondaryButton>Join Now</SecondaryButton>
                     </Link>
@@ -39,11 +58,27 @@ const LandingHomeNavbar = () => {
             <Drawer
                 open={isOpen}
                 onClose={toggleDrawer}
-                direction='top'
-                style={{ backgroundColor: '#EAFDFC'}}
+                direction='right'
             >
-                <Box sx={{ display: 'grid', placeItems: 'center', height: '100%' }}>
-                    <TextField id="standard-basic" label="Standard" variant="standard" />
+                <Box sx={{}}>
+                    <Box p={4}>
+                        <Box>
+                            <BiSearchAlt2 onClick={searchToggleDrawer} fontSize={30} style={{ marginRight: '10px', cursor: 'pointer' }} />
+                        </Box>
+                        <Link to='/register'>
+                            <SecondaryButton style={{ width: '100%' }}>Join Now</SecondaryButton>
+                        </Link>
+                    </Box>
+                </Box>
+            </Drawer>
+
+            <Drawer
+                open={searchIsOpen}
+                onClose={searchToggleDrawer}
+                direction='top'
+            >
+                <Box sx={{ display: 'grid', placeItems: 'center', height: '100%', width: '50%', margin: '0 auto' }}>
+                    <TextField id="standard-basic" label="Search Here" fullWidth variant="standard" />
                 </Box>
             </Drawer>
         </Box>
