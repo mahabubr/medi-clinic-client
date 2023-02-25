@@ -1,0 +1,66 @@
+[
+	{
+		"img": "https://images.unsplash.com/photo-1600959907703-125ba1374a12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+		"hospital_name": "De Anza",
+		"ratting": 3.4,
+		"price": 2800,
+		"root": "Washington to Grand Canyon",
+		"phone": "111 222 3333"
+	},
+	{
+		"img": "https://images.unsplash.com/photo-1554734867-bf3c00a49371?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+		"hospital_name": "Kliniken Clinic",
+		"ratting": 5,
+		"price": 2400,
+		"root": "Bath to Birmingham",
+		"phone": "111 222 3333"
+	},
+	{
+		"img": "https://images.unsplash.com/photo-1612574935301-af13ccce9258?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+		"hospital_name": "The Tranquil",
+		"ratting": 4.6,
+		"price": 2600,
+		"root": "Bradford to Brighton",
+		"phone": "111 222 3333"
+	},
+	{
+		"img": "https://images.unsplash.com/photo-1579037005241-a79202c7e9fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+		"hospital_name": "Medical Care",
+		"ratting": 4.4,
+		"price": 1400,
+		"root": "Hove to Bristol",
+		"phone": "111 222 3333"
+	},
+	{
+		"img": "https://images.unsplash.com/photo-1625258110620-b213f56b9267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+		"hospital_name": "Pilgrim Health",
+		"ratting": 4.8,
+		"price": 400,
+		"root": "Cambridge to Canterbury",
+		"phone": "111 222 3333"
+	},
+	{
+		"img": "https://plus.unsplash.com/premium_photo-1663047816989-b2c23cdc8322?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+		"hospital_name": "MedicalIrene Kelly",
+		"ratting": 2.4,
+		"price": 2000,
+		"root": "Carlisle to Alabama",
+		"phone": "111 222 3333"
+	},
+	{
+		"img": "https://images.unsplash.com/photo-1588321421727-f807ae7da8a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=867&q=80",
+		"hospital_name": "Sick Stop",
+		"ratting": 3.8,
+		"price": 1000,
+		"root": "Geneva to Basel",
+		"phone": "111 222 3333"
+	},
+	{
+		"img": "https://images.unsplash.com/photo-1587745416684-47953f16f02f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=808&q=80",
+		"hospital_name": "White valley care",
+		"ratting": 4.4,
+		"price": 800,
+		"root": "Lausanne to Bern",
+		"phone": "111 222 3333"
+	}
+]

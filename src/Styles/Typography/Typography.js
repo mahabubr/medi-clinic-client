@@ -28,6 +28,10 @@ export const SmallCardText7 = styled.h2`
     color: #301E67;
     font-weight: 800;
 `
+export const SmallCardText8 = styled.h2`
+    color: #A7727D;
+    font-weight: 800;
+`
 
 export const ContainerTitleText = styled.h1`
     text-align: center;

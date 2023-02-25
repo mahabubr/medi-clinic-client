@@ -25,7 +25,7 @@ const Hospitals = () => {
                         </Box>
                         <Box width={'60%'} >
                             <Box px={3} py={2}>
-                                <Typography fontWeight={700} color={'#3F979B'} variant='h6' >{n.name}</Typography>
+                                <Typography fontWeight={700} color={'#537FE7'} variant='h6' >{n.name}</Typography>
                                 <Typography variant='subtitle2' fontWeight={200} color={'#344D67'} >{n.description.slice(0, 50)}...</Typography>
                                 <Box my={1} bgcolor={'#E9F8F9'} p={1} borderRadius={1}>
                                     <Box sx={{ display: 'flex', justifyContent: 'start', alignItems: 'center' }}>
@@ -37,9 +37,9 @@ const Hospitals = () => {
                                         <Typography ml={0.5} variant='subtitle2' color={'GrayText'}>{n.location}</Typography>
                                     </Box>
                                 </Box>
-                                    <Box>
-                                        <Rating name="half-rating" defaultValue={n.ratting} readOnly precision={0.5} />
-                                    </Box>
+                                <Box>
+                                    <Rating name="half-rating" defaultValue={n.ratting} readOnly precision={0.5} />
+                                </Box>
                             </Box>
                             <TabPrimaryButton1>More About</TabPrimaryButton1>
                         </Box>

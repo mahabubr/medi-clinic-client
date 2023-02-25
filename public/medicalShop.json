@@ -1,0 +1,56 @@
+[
+	{
+		"img": "https://i.ibb.co/Tw7Nw2f/1.jpg",
+		"name": "Best Care Pharmacy",
+		"location": "Alabama, USA",
+		"ratting": 4.5,
+		"phone": "111 222 3333",
+		"opening_hours": "10AM - 10PM",
+		"available_medicine": 5000
+	},
+	{
+		"img": "https://i.ibb.co/b11C7H1/2.jpg",
+		"name": "Healthy Pharmacy",
+		"location": "Georgia, USA",
+		"ratting": 1.8,
+		"phone": "111 222 3333",
+		"opening_hours": "11AM - 11PM",
+		"available_medicine": 78000
+	},
+	{
+		"img": "https://i.ibb.co/mCrc0Yq/3.jpg",
+		"name": "Generation Pharmacy",
+		"location": "California, USA",
+		"ratting": 2.8,
+		"phone": "111 222 3333",
+		"opening_hours": "12AM - 12AM",
+		"available_medicine": 62000
+	},
+	{
+		"img": "https://i.ibb.co/qW690mY/4.jpg",
+		"name": "Medilane Pharmacy",
+		"location": "Montana, USA",
+		"ratting": 4.6,
+		"phone": "111 222 3333",
+		"opening_hours": "9AM - 11PM",
+		"available_medicine": 85000
+	},
+	{
+		"img": "https://i.ibb.co/3pxvrcV/5.jpg",
+		"name": "Grand Health",
+		"location": "Florida, USA",
+		"ratting": 4.2,
+		"phone": "111 222 3333",
+		"opening_hours": "8PM - 10PM",
+		"available_medicine": 3000
+	},
+	{
+		"img": "https://i.ibb.co/yqYDvYm/6.jpg",
+		"name": "Center Pharmacy",
+		"location": "Washington, USA",
+		"ratting": 3.4,
+		"phone": "111 222 3333",
+		"opening_hours": "10AM - 2AM",
+		"available_medicine": 15000
+	}
+]

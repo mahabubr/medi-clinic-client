@@ -1,0 +1,44 @@
+[
+	{
+		"img": "https://i.ibb.co/rv51Kj5/1.jpg",
+		"name": "IFT Machine",
+		"phone": "111 222 3333",
+		"number_of_therapy": 500,
+		"hospital_name": "WishyWave Hospital"
+	},
+	{
+		"img": "https://i.ibb.co/dGgXW6H/2.jpg",
+		"name": "Ultrasound Machine",
+		"phone": "111 222 3333",
+		"number_of_therapy": 1500,
+		"hospital_name": "YouHeal Hospital"
+	},
+	{
+		"img": "https://i.ibb.co/JcDGm55/3.jpg",
+		"name": "TENS Machine",
+		"phone": "111 222 3333",
+		"number_of_therapy": 2700,
+		"hospital_name": "MedStar Hospital"
+	},
+	{
+		"img": "https://i.ibb.co/j5n8D0g/4.jpg",
+		"name": "Traction Kit",
+		"phone": "111 222 3333",
+		"number_of_therapy": 300,
+		"hospital_name": "Medical Hospital"
+	},
+	{
+		"img": "https://i.ibb.co/jrwyhxv/5.jpg",
+		"name": "Traction Machine",
+		"phone": "111 222 3333",
+		"number_of_therapy": 8000,
+		"hospital_name": "Handy Health"
+	},
+	{
+		"img": "https://i.ibb.co/ByQH0Yh/6.jpg",
+		"name": "CPM Machine",
+		"phone": "111 222 3333",
+		"number_of_therapy": 4500,
+		"hospital_name": "Heal And Health"
+	}
+]

@@ -36,7 +36,7 @@ const AllSectionTab = () => {
                     <Tab label="Doctors" {...A11yProps(0)} />
                     <Tab label="Hospitals" {...A11yProps(1)} />
                     <Tab label="Therapy" {...A11yProps(2)} />
-                    <Tab label="Medical Shop" {...A11yProps(3)} />
+                    <Tab label="Pharmacy" {...A11yProps(3)} />
                     <Tab label="Ambulances" {...A11yProps(4)} />
                     <Tab label="Nurses" {...A11yProps(5)} />
                     <Tab label="Medicines" {...A11yProps(6)} />
