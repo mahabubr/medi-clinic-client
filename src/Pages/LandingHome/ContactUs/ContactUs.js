@@ -10,7 +10,7 @@ import { PrimaryButton } from '../../../Styles/Button/button';
 
 const ContactUs = () => {
     return (
-        <Box sx={{ width: '80%', margin: '0 auto', mt: 10 }}>
+        <Box sx={{ width: '80%', margin: '0 auto', mt: 10, mb: 10 }}>
             <ContainerSubTitleText>Get In Touch</ContainerSubTitleText>
             <ContainerTitleText>Contact Us</ContainerTitleText>
             <Box sx={{

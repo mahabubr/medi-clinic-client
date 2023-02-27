@@ -15,7 +15,7 @@ function App() {
   }, [])
 
   return (
-    <div>
+    <>
       {
         loading
           ?
@@ -23,7 +23,7 @@ function App() {
           :
           <RouterProvider router={router} />
       }
-    </div>
+    </>
   );
 }
 

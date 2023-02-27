@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import LandingHomeLayout from "../Layout/LandingHomeLayout";
 import LandingHome from "../Pages/LandingHome/LandingHome";
+import MainRegister from "../Pages/RegisterAndLogin/MainRegister";
 
 const router = createBrowserRouter([
     {
@@ -10,6 +11,10 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <LandingHome />
+            },
+            {
+                path: '/register',
+                element: <MainRegister />
             }
         ]
     }

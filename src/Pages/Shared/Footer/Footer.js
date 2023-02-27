@@ -7,7 +7,7 @@ import { IoLogoGooglePlaystore } from 'react-icons/io5';
 
 const Footer = () => {
     return (
-        <Box sx={{ mt: 10 }}>
+        <Box >
             <Box sx={{
                 display: 'grid', gridTemplateColumns: {
                     xs: 'repeat(1, 1fr)',
