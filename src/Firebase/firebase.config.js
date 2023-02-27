@@ -6,12 +6,12 @@ import { getAuth } from 'firebase/auth'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyB8Zrj-aqM_eYYP8b6zEaD0zGhJ6GBLqkY",
-    authDomain: "medi-clinic-35ddb.firebaseapp.com",
-    projectId: "medi-clinic-35ddb",
-    storageBucket: "medi-clinic-35ddb.appspot.com",
-    messagingSenderId: "1086376116488",
-    appId: "1:1086376116488:web:2bd64f0e6bea30cfdfacbd"
+    apiKey: process.env.REACT_APP_apiKey,
+    authDomain: process.env.REACT_APP_authDomain,
+    projectId: process.env.REACT_APP_projectId,
+    storageBucket: process.env.REACT_APP_storageBucket,
+    messagingSenderId: process.env.REACT_APP_messagingSenderId,
+    appId: process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase

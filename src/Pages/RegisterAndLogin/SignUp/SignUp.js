@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import BadgeIcon from '@mui/icons-material/Badge';
-import { Box, Checkbox, FormControl, Input, InputAdornment, InputLabel, Typography } from '@mui/material';
+import { Alert, Box, Checkbox, FormControl, Input, InputAdornment, InputLabel, Typography } from '@mui/material';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import { TabPrimaryButton } from '../../../Styles/Button/button';
 import KeyIcon from '@mui/icons-material/Key'
 import { Link } from 'react-router-dom';
 import { useFileUpload } from 'use-file-upload';
+import { useForm } from 'react-hook-form';
 
 
 const SignUp = () => {
@@ -15,15 +16,34 @@ const SignUp = () => {
     const [checkboxStatus, setCheckBoxStatus] = useState(true)
     const [file, selectFile] = useFileUpload()
 
-    console.log(file);
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const [passwordError, setPasswordError] = useState('')
+
+    const onSubmit = data => {
+        if (data.password !== data.confirmPassword) {
+            setPasswordError('Password Not Matched')
+            return
+        }
+
+        const formInfo = {
+            name: data.name,
+            email: data.email,
+            password: data.password,
+            confirm_password: data.confirmPassword
+        }
+
+    };
 
     return (
         <>
-            <form>
+            <Alert severity="success" color="info">
+                Please Full Out All The Section
+            </Alert>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <Box>
                     {file
                         ?
-                        <Box sx={{ display: 'grid', placeItems: 'center' }}>
+                        <Box mt={2} sx={{ display: 'grid', placeItems: 'center' }}>
                             <img style={{ width: '100px', height: '100px', borderRadius: '50%', objectFit: 'cover' }} src={file.source} alt='preview' />
                         </Box>
                         :
@@ -43,6 +63,7 @@ const SignUp = () => {
                             Your Full Name
                         </InputLabel>
                         <Input
+                            {...register("name", { required: true, maxLength: 20 })}
                             color='success'
                             id="input-with-icon-adornment"
                             startAdornment={
@@ -52,11 +73,16 @@ const SignUp = () => {
                             }
                         />
                     </FormControl>
+                    {
+                        errors.name?.type === 'required' &&
+                        <Alert severity="error">Name is required</Alert>
+                    }
                     <FormControl sx={{ mt: 2 }} fullWidth variant="standard">
                         <InputLabel color='success' htmlFor="input-with-icon-adornment">
                             Your Email
                         </InputLabel>
                         <Input
+                            {...register("email", { required: true, maxLength: /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/ })}
                             type='email'
                             color='success'
                             id="input-with-icon-adornment"
@@ -67,12 +93,17 @@ const SignUp = () => {
                             }
                         />
                     </FormControl>
+                    {
+                        errors.email?.type === 'required' &&
+                        <Alert severity="error">Email is required</Alert>
+                    }
                     <FormControl sx={{ mt: 2 }} fullWidth variant="standard">
                         <InputLabel color='success' htmlFor="input-with-icon-adornment">
                             Your Password
                         </InputLabel>
                         <Input
-                            type='email'
+                            {...register("password", { required: true, minLength: 6 })}
+                            type='password'
                             color='success'
                             id="input-with-icon-adornment"
                             startAdornment={
@@ -82,12 +113,17 @@ const SignUp = () => {
                             }
                         />
                     </FormControl>
+                    {
+                        errors.password?.type === 'required' &&
+                        <Alert severity="error">Password is required</Alert>
+                    }
                     <FormControl sx={{ mt: 2 }} fullWidth variant="standard">
                         <InputLabel color='success' htmlFor="input-with-icon-adornment">
                             Confirm Password
                         </InputLabel>
                         <Input
-                            type='email'
+                            {...register("confirmPassword", { required: true, minLength: 6 })}
+                            type='password'
                             color='success'
                             id="input-with-icon-adornment"
                             startAdornment={
@@ -97,6 +133,14 @@ const SignUp = () => {
                             }
                         />
                     </FormControl>
+                    {
+                        errors.confirmPassword?.type === 'required' &&
+                        <Alert severity="error">Confirm Password is required</Alert>
+                    }
+                    {
+                        passwordError &&
+                        <Alert severity="error">{passwordError}</Alert>
+                    }
                     <Box onClick={() => setCheckBoxStatus(!checkboxStatus)} display={'flex'} justifyContent={'start'} alignItems={'center'} mt={2} >
                         <Checkbox {...label} color="secondary" />
                         <Link style={{ textDecoration: 'none', color: 'blueviolet' }} to='/trams-and-condition'>
