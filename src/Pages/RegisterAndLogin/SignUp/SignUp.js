@@ -147,7 +147,7 @@ const SignUp = () => {
                             <Typography> Accept Trams and Condition</Typography>
                         </Link>
                     </Box>
-                    <TabPrimaryButton disabled={checkboxStatus}>Register</TabPrimaryButton>
+                    <TabPrimaryButton>Register</TabPrimaryButton>
                 </Box>
             </form>
         </>
