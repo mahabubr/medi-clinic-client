@@ -3,18 +3,22 @@ import { Alert, FormControl, IconButton, Input, InputAdornment, InputLabel } fro
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import { TabPrimaryButton } from '../../../Styles/Button/button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../../Redux/features/auth/authSlice';
+import SecondaryLoader from '../../../Components/SecondaryLoader/SecondaryLoader';
+import { toast } from 'react-toastify';
 
 
 const Login = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const { error } = useSelector(state => state.auth)
+    const { error, isLoading } = useSelector(state => state.auth)
     const dispatch = useDispatch()
+
+    const navigate = useNavigate()
 
     const [showPassword, setShowPassword] = useState(false);
 
@@ -22,6 +26,17 @@ const Login = () => {
 
     const onSubmit = ({ email, password }) => {
         dispatch(loginUser({ email, password }));
+        navigate('/')
+        toast.success('Login Successful!', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+        });
     }
 
     return (
@@ -79,7 +94,13 @@ const Login = () => {
             <Link to='/forget-password' style={{ display: 'flex', justifyContent: 'end', margin: '5px 0', textDecoration: 'none' }}>
                 Forget Password
             </Link>
-            <TabPrimaryButton style={{ marginTop: '30px' }}>Login</TabPrimaryButton>
+            {
+                isLoading
+                    ?
+                    <SecondaryLoader />
+                    :
+                    <TabPrimaryButton style={{ marginTop: '30px' }}>Login</TabPrimaryButton>
+            }
             {
                 error &&
                 <Alert severity="error">{error.slice(17, -2)}</Alert>

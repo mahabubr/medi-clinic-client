@@ -5,22 +5,28 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { useDispatch } from 'react-redux';
 import { facebookLogin, githubLogin, googleLogin } from '../../Redux/features/auth/authSlice';
+import { useNavigate } from 'react-router-dom';
 
 const LoginSocialMedia = () => {
 
     const dispatch = useDispatch()
 
+    const navigate = useNavigate()
+
     const handleGoogleSignUp = () => {
         dispatch(googleLogin())
+        navigate('/role')
     }
 
     const handleFacebookSignUp = () => {
         dispatch(facebookLogin())
+        navigate('/role')
     }
 
 
     const handleGithubSignUp = () => {
         dispatch(githubLogin())
+        navigate('/role')
     }
 
 

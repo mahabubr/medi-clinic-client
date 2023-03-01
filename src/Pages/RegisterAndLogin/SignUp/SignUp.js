@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Alert, Box, Checkbox, FormControl, Input, InputAdornment, InputLabel, Typography } from '@mui/material';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import { TabPrimaryButton } from '../../../Styles/Button/button';
 import KeyIcon from '@mui/icons-material/Key'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { registerUser } from '../../../Redux/features/auth/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import SecondaryLoader from '../../../Components/SecondaryLoader/SecondaryLoader';
+import { toast } from 'react-toastify';
 
 const SignUp = () => {
 
@@ -17,7 +19,9 @@ const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [passwordError, setPasswordError] = useState('')
 
-    const { error } = useSelector(state => state.auth)
+    const navigate = useNavigate()
+
+    const { error, isLoading, user: { email: signUpEmail } } = useSelector(state => state.auth)
     const dispatch = useDispatch()
 
     const onSubmit = data => {
@@ -30,6 +34,17 @@ const SignUp = () => {
         const password = data.password
 
         dispatch(registerUser({ email, password }))
+        navigate('/role')
+        toast.success('Sign Up Successful!', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+        });
     };
 
     return (
@@ -109,7 +124,13 @@ const SignUp = () => {
                             <Typography> Accept Trams and Condition</Typography>
                         </Link>
                     </Box>
-                    <TabPrimaryButton>Register</TabPrimaryButton>
+                    {
+                        isLoading
+                            ?
+                            <SecondaryLoader />
+                            :
+                            <TabPrimaryButton>Register</TabPrimaryButton>
+                    }
                     {
                         error &&
                         <Alert severity="error">{error.slice(17, -2)}</Alert>

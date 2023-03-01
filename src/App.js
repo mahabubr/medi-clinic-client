@@ -2,6 +2,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import './App.css';
 import MainLoader from './Components/MainLoader/MainLoader';
 import auth from './Firebase/firebase.config';
@@ -13,7 +14,6 @@ function App() {
   const dispatch = useDispatch()
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      console.log(user);
       if (user) {
         dispatch(setUser(user.email))
       }
@@ -37,6 +37,7 @@ function App() {
           :
           <RouterProvider router={router} />
       }
+      <ToastContainer />
     </>
   );
 }

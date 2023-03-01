@@ -14,6 +14,22 @@ export const PrimaryButton = styled.button`
     }
 `
 
+export const PrimaryRoleButton = styled.button`
+      background: #537FE7;
+      border: none;
+      border-radius: 30%;
+      width: 50px;
+      height: 50px;
+      padding: 10px;
+      cursor: pointer;
+      transition: all 0.5s;
+      color: #ffffff;
+
+      &:hover {
+        box-shadow: 0 3px 20px #537FE7;
+    }
+`
+
 export const TabPrimaryButton = styled.button`
       background: #609966;
       border: none;

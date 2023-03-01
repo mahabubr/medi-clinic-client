@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import SmallNav from './SmallNav';
 import logo from '../../../Assets/logo.png'
 import { PrimaryButton, SecondaryButton } from '../../../Styles/Button/button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { BiSearchAlt2 } from 'react-icons/bi'
 
 // import component 👇
@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { signOut } from 'firebase/auth';
 import auth from '../../../Firebase/firebase.config';
 import { logout } from '../../../Redux/features/auth/authSlice';
+import { toast } from 'react-toastify';
 
 const LandingHomeNavbar = () => {
 
@@ -23,6 +24,8 @@ const LandingHomeNavbar = () => {
 
     const { user: { email } } = useSelector(state => state.auth)
     const dispatch = useDispatch()
+
+    const navigate = useNavigate()
 
     const toggleDrawer = () => {
         setIsOpen((prevState) => !prevState)
@@ -37,6 +40,17 @@ const LandingHomeNavbar = () => {
         signOut(auth)
             .then(() => {
                 dispatch(logout())
+                navigate('/')
+                toast.success('Log Out Successful!', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
             })
     }
 
@@ -89,7 +103,7 @@ const LandingHomeNavbar = () => {
                         {
                             email
                                 ?
-                                <PrimaryButton style={{width: '100%'}} onClick={handleSignOut}>Log Out</PrimaryButton>
+                                <PrimaryButton style={{ width: '100%' }} onClick={handleSignOut}>Log Out</PrimaryButton>
                                 :
                                 <Link to='/register'>
                                     <SecondaryButton style={{ width: '100%' }}>Join Now</SecondaryButton>
