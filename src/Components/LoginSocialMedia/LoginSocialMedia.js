@@ -3,8 +3,28 @@ import React from 'react';
 import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import { useDispatch } from 'react-redux';
+import { facebookLogin, githubLogin, googleLogin } from '../../Redux/features/auth/authSlice';
 
 const LoginSocialMedia = () => {
+
+    const dispatch = useDispatch()
+
+    const handleGoogleSignUp = () => {
+        dispatch(googleLogin())
+    }
+
+    const handleFacebookSignUp = () => {
+        dispatch(facebookLogin())
+    }
+
+
+    const handleGithubSignUp = () => {
+        dispatch(githubLogin())
+    }
+
+
+
     return (
         <ButtonGroup sx={{
             display: {
@@ -12,15 +32,15 @@ const LoginSocialMedia = () => {
                 md: 'flex'
             }
         }} fullWidth variant="text" color='error' aria-label="text button group">
-            <Button sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 1 }}>
+            <Button onClick={handleGoogleSignUp} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 1 }}>
                 <GoogleIcon />
                 <Typography variant='subtitle2'>Google</Typography>
             </Button>
-            <Button sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 1 }}>
+            <Button onClick={handleFacebookSignUp} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 1 }}>
                 <FacebookIcon />
                 <Typography variant='subtitle2'>Facebook</Typography>
             </Button>
-            <Button sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 1 }}>
+            <Button onClick={handleGithubSignUp} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 1 }}>
                 <GitHubIcon />
                 <Typography variant='subtitle2'>Github</Typography>
             </Button>

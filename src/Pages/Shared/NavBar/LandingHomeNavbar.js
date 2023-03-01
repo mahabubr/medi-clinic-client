@@ -2,7 +2,7 @@ import { Box, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import SmallNav from './SmallNav';
 import logo from '../../../Assets/logo.png'
-import { SecondaryButton } from '../../../Styles/Button/button';
+import { PrimaryButton, SecondaryButton } from '../../../Styles/Button/button';
 import { Link } from 'react-router-dom';
 import { BiSearchAlt2 } from 'react-icons/bi'
 
@@ -12,10 +12,18 @@ import Drawer from 'react-modern-drawer'
 //import styles 👇
 import 'react-modern-drawer/dist/index.css'
 import { AiOutlineAlignRight } from 'react-icons/ai';
+import { useDispatch, useSelector } from 'react-redux';
+import { signOut } from 'firebase/auth';
+import auth from '../../../Firebase/firebase.config';
+import { logout } from '../../../Redux/features/auth/authSlice';
 
 const LandingHomeNavbar = () => {
 
     const [isOpen, setIsOpen] = useState(false)
+
+    const { user: { email } } = useSelector(state => state.auth)
+    const dispatch = useDispatch()
+
     const toggleDrawer = () => {
         setIsOpen((prevState) => !prevState)
     }
@@ -23,6 +31,13 @@ const LandingHomeNavbar = () => {
     const [searchIsOpen, setSearchIsOpen] = useState(false)
     const searchToggleDrawer = () => {
         setSearchIsOpen((prevState) => !prevState)
+    }
+
+    const handleSignOut = () => {
+        signOut(auth)
+            .then(() => {
+                dispatch(logout())
+            })
     }
 
     return (
@@ -50,9 +65,15 @@ const LandingHomeNavbar = () => {
                     }, alignItems: 'center'
                 }}>
                     <BiSearchAlt2 onClick={searchToggleDrawer} fontSize={30} style={{ marginRight: '10px', cursor: 'pointer' }} />
-                    <Link to='/register'>
-                        <SecondaryButton>Join Now</SecondaryButton>
-                    </Link>
+                    {
+                        email
+                            ?
+                            <PrimaryButton onClick={handleSignOut}>Log Out</PrimaryButton>
+                            :
+                            <Link to='/register'>
+                                <SecondaryButton>Join Now</SecondaryButton>
+                            </Link>
+                    }
                 </Box>
             </Box>
             <Drawer
@@ -65,9 +86,15 @@ const LandingHomeNavbar = () => {
                         <Box>
                             <BiSearchAlt2 onClick={searchToggleDrawer} fontSize={30} style={{ marginRight: '10px', cursor: 'pointer' }} />
                         </Box>
-                        <Link to='/register'>
-                            <SecondaryButton style={{ width: '100%' }}>Join Now</SecondaryButton>
-                        </Link>
+                        {
+                            email
+                                ?
+                                <PrimaryButton style={{width: '100%'}} onClick={handleSignOut}>Log Out</PrimaryButton>
+                                :
+                                <Link to='/register'>
+                                    <SecondaryButton style={{ width: '100%' }}>Join Now</SecondaryButton>
+                                </Link>
+                        }
                     </Box>
                 </Box>
             </Drawer>

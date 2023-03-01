@@ -4,40 +4,57 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import { TabPrimaryButton } from '../../../Styles/Button/button';
 import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginUser } from '../../../Redux/features/auth/authSlice';
 
 
 const Login = () => {
+
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const { error } = useSelector(state => state.auth)
+    const dispatch = useDispatch()
 
     const [showPassword, setShowPassword] = useState(false);
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
+    const onSubmit = ({ email, password }) => {
+        dispatch(loginUser({ email, password }));
+    }
+
     return (
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
             <Alert severity="success" color="info">
                 Please Full Out All The Section
             </Alert>
             <FormControl sx={{ mt: 2 }} fullWidth variant="standard">
-                <InputLabel color='success' htmlFor="outlined-adornment-password">
-                    Email
+                <InputLabel color='success' htmlFor="input-with-icon-adornment">
+                    Your Email
                 </InputLabel>
                 <Input
+                    {...register("email", { required: true, maxLength: /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/ })}
+                    type='email'
                     color='success'
-                    id="outlined-adornment-password"
-                    type={showPassword ? 'text' : 'password'}
+                    id="input-with-icon-adornment"
                     startAdornment={
                         <InputAdornment position="start">
                             <AlternateEmailIcon />
                         </InputAdornment>
                     }
-                    label="Email"
                 />
             </FormControl>
+            {
+                errors.email?.type === 'required' &&
+                <Alert severity="error">Email is required</Alert>
+            }
             <FormControl sx={{ mt: 2 }} fullWidth variant="standard">
                 <InputLabel color='success' htmlFor="outlined-adornment-password">
                     Password
                 </InputLabel>
                 <Input
+                    {...register("password", { required: true, minLength: 6 })}
                     color='success'
                     id="outlined-adornment-password"
                     type={showPassword ? 'text' : 'password'}
@@ -55,10 +72,18 @@ const Login = () => {
                     label="Password"
                 />
             </FormControl>
+            {
+                errors.password?.type === 'required' &&
+                <Alert severity="error">Password is required</Alert>
+            }
             <Link to='/forget-password' style={{ display: 'flex', justifyContent: 'end', margin: '5px 0', textDecoration: 'none' }}>
                 Forget Password
             </Link>
             <TabPrimaryButton style={{ marginTop: '30px' }}>Login</TabPrimaryButton>
+            {
+                error &&
+                <Alert severity="error">{error.slice(17, -2)}</Alert>
+            }
         </form>
     );
 };
