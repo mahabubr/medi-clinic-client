@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Alert, FormControl, IconButton, Input, InputAdornment, InputLabel } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
@@ -9,16 +9,32 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../../Redux/features/auth/authSlice';
 import SecondaryLoader from '../../../Components/SecondaryLoader/SecondaryLoader';
 import { toast } from 'react-toastify';
+import { useGetRoleQuery } from '../../../Redux/features/role/roleApi';
 
 
 const Login = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const { error, isLoading } = useSelector(state => state.auth)
+    const { user: { email }, error, isLoading } = useSelector(state => state.auth)
     const dispatch = useDispatch()
+    const { data, isSuccess } = useGetRoleQuery(email)
 
     const navigate = useNavigate()
+
+    useEffect(() => {
+        data?.map(user => {
+            if (user.role === 'doctor') {
+                navigate('/dashboard/doctor')
+            }
+            if (user.role === 'pharmacy') {
+                navigate('/dashboard/pharmacy')
+            }
+            if (user.role === 'hospital') {
+                navigate('/dashboard/hospital')
+            }
+        })
+    }, [data, navigate])
 
     const [showPassword, setShowPassword] = useState(false);
 
@@ -26,7 +42,6 @@ const Login = () => {
 
     const onSubmit = ({ email, password }) => {
         dispatch(loginUser({ email, password }));
-        navigate('/')
         toast.success('Login Successful!', {
             position: "top-center",
             autoClose: 5000,

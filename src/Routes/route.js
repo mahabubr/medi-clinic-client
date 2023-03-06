@@ -3,6 +3,9 @@ import LandingHomeLayout from "../Layout/LandingHomeLayout";
 import RoleLayout from "../Layout/RoleLayout";
 import LandingHome from "../Pages/LandingHome/LandingHome";
 import MainRegister from "../Pages/RegisterAndLogin/MainRegister";
+import Doctor from "../Pages/RegisterRole/Doctor/Doctor";
+import Hospital from "../Pages/RegisterRole/Hospital/Hospital";
+import Pharmacy from "../Pages/RegisterRole/Pharmacy/Pharmacy";
 import RegisterRole from "../Pages/RegisterRole/RegisterRole";
 
 const router = createBrowserRouter([
@@ -27,7 +30,19 @@ const router = createBrowserRouter([
             {
                 path: '/role',
                 element: <RegisterRole />
-            }
+            },
+            {
+                path: '/role/doctor',
+                element: <Doctor />
+            },
+            {
+                path: '/role/hospital',
+                element: <Hospital />
+            },
+            {
+                path: '/role/pharmacy',
+                element: <Pharmacy />
+            },
         ]
     }
 ])

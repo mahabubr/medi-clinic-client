@@ -59,6 +59,11 @@ const Hospitals = () => {
                                 <Box>
                                     <Rating name="half-rating" defaultValue={n.ratting} readOnly precision={0.5} />
                                 </Box>
+                                <Box>
+                                    {
+                                        n.hash_tag.map(key => <p key={key}>{key}</p>)
+                                    }
+                                </Box>
                             </Box>
                             <TabPrimaryButton1>More About</TabPrimaryButton1>
                         </Box>
