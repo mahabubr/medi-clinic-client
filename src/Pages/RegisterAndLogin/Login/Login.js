@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../../Redux/features/auth/authSlice';
 import SecondaryLoader from '../../../Components/SecondaryLoader/SecondaryLoader';
 import { toast } from 'react-toastify';
-import { useGetRoleQuery } from '../../../Redux/features/role/roleApi';
+import { useGetRoleFilterQuery } from '../../../Redux/features/role/roleApi';
 
 
 const Login = () => {
@@ -17,41 +17,85 @@ const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const { user: { email }, error, isLoading } = useSelector(state => state.auth)
+    const { data } = useGetRoleFilterQuery(email)
     const dispatch = useDispatch()
-    const { data, isSuccess } = useGetRoleQuery(email)
 
     const navigate = useNavigate()
-
-    useEffect(() => {
-        data?.map(user => {
-            if (user.role === 'doctor') {
-                navigate('/dashboard/doctor')
-            }
-            if (user.role === 'pharmacy') {
-                navigate('/dashboard/pharmacy')
-            }
-            if (user.role === 'hospital') {
-                navigate('/dashboard/hospital')
-            }
-        })
-    }, [data, navigate])
 
     const [showPassword, setShowPassword] = useState(false);
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
+    useEffect(() => {
+        if (data?.role === 'doctor') {
+            navigate('/dashboard/doctor')
+            toast.success('Login Successful!', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+        }
+        if (data?.role === 'hospital') {
+            navigate('/dashboard/hospital')
+            toast.success('Login Successful!', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+        }
+        if (data?.role === 'pharmacy') {
+            navigate('/dashboard/pharmacy')
+            toast.success('Login Successful!', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+        }
+        if (data?.role === 'user') {
+            navigate('/dashboard/user')
+            toast.success('Login Successful!', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+        }
+        // else {
+        //     navigate('/register')
+        //     toast.error('Please Register As Role!', {
+        //         position: "top-center",
+        //         autoClose: 5000,
+        //         hideProgressBar: false,
+        //         closeOnClick: true,
+        //         pauseOnHover: true,
+        //         draggable: true,
+        //         progress: undefined,
+        //         theme: "colored",
+        //     });
+        // }
+    }, [navigate, data?.role])
+
     const onSubmit = ({ email, password }) => {
         dispatch(loginUser({ email, password }));
-        toast.success('Login Successful!', {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-        });
     }
 
     return (

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import TabPanel from '../../Components/TabPanel/TabPanel';
 import A11yProps from '../../Components/A11yProps/A11yProps';
 import SignUp from './SignUp/SignUp';
-import LoginSocialMedia from '../../Components/LoginSocialMedia/LoginSocialMedia';
+// import LoginSocialMedia from '../../Components/LoginSocialMedia/LoginSocialMedia';
 import Login from './Login/Login';
 
 
@@ -54,9 +54,9 @@ const MainRegister = () => {
                             <SignUp />
                         </TabPanel>
                     </Box>
-                    <Box>
+                    {/* <Box>
                         <LoginSocialMedia />
-                    </Box>
+                    </Box> */}
                 </Box>
             </Box>
         </Box>

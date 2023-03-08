@@ -24,10 +24,12 @@ const RegisterRole = () => {
                     md: 'repeat(2, 1fr)',
                 }, gap: 8,
             }}>
-                <Box color={'#2F58CD'} sx={{ ":hover": { transform: "scale(1.1);" }, transition: 'all 1s', cursor: 'pointer' }} bgcolor={'#BAD7E9'} p={5} borderRadius={2} >
-                    <PersonIcon sx={{ fontSize: '60px' }} />
-                    <Typography variant='h4' fontWeight={800}>AS USER</Typography>
-                </Box>
+                <Link to='/role/user' style={{ textDecoration: 'none' }}>
+                    <Box color={'#2F58CD'} sx={{ ":hover": { transform: "scale(1.1);" }, transition: 'all 1s', cursor: 'pointer' }} bgcolor={'#BAD7E9'} p={5} borderRadius={2} >
+                        <PersonIcon sx={{ fontSize: '60px' }} />
+                        <Typography variant='h4' fontWeight={800}>AS USER</Typography>
+                    </Box>
+                </Link>
                 <Link to='/role/doctor' style={{ textDecoration: 'none' }}>
                     <Box color={'#2F58CD'} sx={{ ":hover": { transform: "scale(1.1);" }, transition: 'all 1s', cursor: 'pointer' }} bgcolor={'#BAD7E9'} p={5} borderRadius={2} >
                         <EmojiPeopleIcon sx={{ fontSize: '60px' }} />

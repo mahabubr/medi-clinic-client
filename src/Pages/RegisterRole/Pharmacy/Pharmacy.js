@@ -4,21 +4,23 @@ import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { useFileUpload } from 'use-file-upload';
-import { usePostRoleMutation } from '../../../Redux/features/role/roleApi';
+import { usePostPharmacyMutation, usePostRoleMutation } from '../../../Redux/features/role/roleApi';
 import { PrimaryButton } from '../../../Styles/Button/button';
 
 const Pharmacy = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const [file, selectFile] = useFileUpload()
 
     const { user: { email } } = useSelector(state => state.auth)
+
     const [postRole, { isSuccess }] = usePostRoleMutation()
+    const [postPharmacy] = usePostPharmacyMutation()
 
     const [time, setTime] = useState('');
     const handleChange = (event) => {
         setTime(event.target.value);
     };
 
-    const [file, selectFile] = useFileUpload()
 
     useEffect(() => {
         if (isSuccess) {
@@ -71,7 +73,8 @@ const Pharmacy = () => {
                 }
 
                 postRole(pharmacyInfo)
-
+                postPharmacy(pharmacyInfo)
+                console.log(pharmacyInfo);
             })
     };
 

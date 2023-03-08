@@ -24,6 +24,22 @@ const SignUp = () => {
     const { error, isLoading, user: { email: signUpEmail } } = useSelector(state => state.auth)
     const dispatch = useDispatch()
 
+    useEffect(() => {
+        if (!isLoading && signUpEmail) {
+            navigate('/role')
+            toast.success('Sign Up Successful!', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+        }
+    }, [isLoading, signUpEmail, navigate])
+
     const onSubmit = data => {
         if (data.password !== data.confirmPassword) {
             setPasswordError('Password Not Matched')
@@ -34,17 +50,6 @@ const SignUp = () => {
         const password = data.password
 
         dispatch(registerUser({ email, password }))
-        navigate('/role')
-        toast.success('Sign Up Successful!', {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-        });
     };
 
     return (

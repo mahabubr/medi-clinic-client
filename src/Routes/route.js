@@ -7,6 +7,7 @@ import Doctor from "../Pages/RegisterRole/Doctor/Doctor";
 import Hospital from "../Pages/RegisterRole/Hospital/Hospital";
 import Pharmacy from "../Pages/RegisterRole/Pharmacy/Pharmacy";
 import RegisterRole from "../Pages/RegisterRole/RegisterRole";
+import User from "../Pages/RegisterRole/User/User";
 
 const router = createBrowserRouter([
     {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
             {
                 path: '/role/pharmacy',
                 element: <Pharmacy />
+            },
+            {
+                path: '/role/user',
+                element: <User />
             },
         ]
     }

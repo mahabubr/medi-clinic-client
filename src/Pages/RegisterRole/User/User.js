@@ -1,27 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { Alert, Box, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material';
-import { useFileUpload } from 'use-file-upload';
-import { PrimaryButton } from '../../../Styles/Button/button';
+import { Alert, Box, TextField } from '@mui/material';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
-import { usePostDoctorMutation, usePostRoleMutation } from '../../../Redux/features/role/roleApi';
+import { toast } from 'react-toastify';
+import { useFileUpload } from 'use-file-upload';
+import { usePostRoleMutation, usePostUserMutation } from '../../../Redux/features/role/roleApi';
+import { PrimaryButton } from '../../../Styles/Button/button';
 
-const Doctor = () => {
-
+const User = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [file, selectFile] = useFileUpload()
 
     const { user: { email } } = useSelector(state => state.auth)
 
     const [postRole, { isSuccess }] = usePostRoleMutation()
-    const [postDoctor] = usePostDoctorMutation()
+    const [postUser] = usePostUserMutation()
 
-
-    const [time, setTime] = useState('');
-    const handleChange = (event) => {
-        setTime(event.target.value);
-    };
 
     useEffect(() => {
         if (isSuccess) {
@@ -61,20 +55,19 @@ const Doctor = () => {
                     theme: "colored",
                 });
 
-                const doctorInfo = {
+                const userInfo = {
                     img: imageUrl,
                     name: data.name,
                     designation: data.designation,
                     email: email,
                     phone: data.phone,
-                    hospital_name: data.hospital,
-                    time_to_sit: time,
-                    role: 'doctor'
+                    role: 'user'
                 }
 
-                postRole(doctorInfo)
-                postDoctor(doctorInfo)
-                console.log(doctorInfo);
+                postRole(userInfo)
+                postUser(userInfo)
+                console.log(userInfo);
+
             })
     };
 
@@ -144,44 +137,13 @@ const Doctor = () => {
                             <Alert severity="error">Phone number is required</Alert>
                         }
                     </Box>
-                    <Box>
-                        <TextField
-                            {...register("hospital", { required: true })}
-                            fullWidth id="outlined-basic" label="Hospital Name" variant="outlined" />
-                        {
-                            errors.hospital?.type === 'required' &&
-                            <Alert severity="error">Hospital Name is required</Alert>
-                        }
-                    </Box>
-                    <Box>
-                        <FormControl fullWidth>
-                            <InputLabel id="demo-simple-select-label">Shift Time</InputLabel>
-                            <Select
-                                {...register("shift", { required: true })}
-                                labelId="demo-simple-select-label"
-                                id="demo-simple-select"
-                                value={time}
-                                label="Shift Time"
-                                onChange={handleChange}
-                            >
-                                <MenuItem value={'5PM - 10PM'}>5PM - 9PM</MenuItem>
-                                <MenuItem value={'8AM - 10PM'}>8AM - 10PM</MenuItem>
-                                <MenuItem value={'4PM - 6PM'}>4PM - 6PM</MenuItem>
-                                <MenuItem value={'8PM - 4AM'}>8PM - 4AM</MenuItem>
-                            </Select>
-                        </FormControl>
-                        {
-                            errors.shift?.type === 'required' &&
-                            <Alert severity="error">Shift time is required</Alert>
-                        }
-                    </Box>
                 </Box>
                 <Box mt={2} display={'flex'} justifyContent={'center'}>
-                    <PrimaryButton type='submit'>Register With Doctor</PrimaryButton>
+                    <PrimaryButton type='submit'>Register With User</PrimaryButton>
                 </Box>
             </form>
         </Box>
     );
 };
 
-export default Doctor;
+export default User;

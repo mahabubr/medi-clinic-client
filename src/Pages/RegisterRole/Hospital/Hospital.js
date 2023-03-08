@@ -5,18 +5,20 @@ import { MultiSelect } from 'react-multi-select-component';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { useFileUpload } from 'use-file-upload';
-import { usePostRoleMutation } from '../../../Redux/features/role/roleApi';
+import { usePostHospitalMutation, usePostRoleMutation } from '../../../Redux/features/role/roleApi';
 import { PrimaryButton } from '../../../Styles/Button/button';
 
 const Hospital = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const [file, selectFile] = useFileUpload()
 
     const { user: { email } } = useSelector(state => state.auth)
 
     const [selected, setSelected] = useState([]);
-    const [postRole, { isSuccess }] = usePostRoleMutation()
 
-    const [file, selectFile] = useFileUpload()
+    const [postRole, { isSuccess }] = usePostRoleMutation()
+    const [postHospital] = usePostHospitalMutation()
+
 
     useEffect(() => {
         if (isSuccess) {
@@ -69,6 +71,8 @@ const Hospital = () => {
                 }
 
                 postRole(hospitalInfo)
+                postHospital(hospitalInfo)
+                console.log(hospitalInfo);
 
             })
     };
@@ -123,7 +127,7 @@ const Hospital = () => {
                     <Box>
                         <TextField
                             {...register("name", { required: true })}
-                            fullWidth id="outlined-basic" label="Full Name" variant="outlined" />
+                            fullWidth id="outlined-basic" label="Hospital Name" variant="outlined" />
                         {
                             errors.name?.type === 'required' &&
                             <Alert severity="error">Name is required</Alert>

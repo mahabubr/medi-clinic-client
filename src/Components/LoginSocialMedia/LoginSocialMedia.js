@@ -1,36 +1,60 @@
 import { Button, ButtonGroup, Typography } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
 import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { facebookLogin, githubLogin, googleLogin } from '../../Redux/features/auth/authSlice';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+// import { usePostRoleMutation, usePostUserMutation } from '../../Redux/features/role/roleApi';
 
 const LoginSocialMedia = () => {
 
-
+    const { error, isLoading, user: { email: signUpEmail } } = useSelector(state => state.auth)
     const dispatch = useDispatch()
-
+    // const [postRole, { isSuccess }] = usePostRoleMutation()
+    // const [postUser] = usePostUserMutation()
     const navigate = useNavigate()
+
+    useEffect(() => {
+        if (!isLoading && signUpEmail) {
+            toast.success('Login Successful!', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+            // const userInfo = {
+            //     img: '',
+            //     name: '',
+            //     designation: '',
+            //     email: signUpEmail,
+            //     phone: '',
+            //     role: 'user'
+            // }
+            // postRole(userInfo)
+            // postUser(userInfo)
+            navigate('/dashboard/user')
+        }
+    }, [isLoading, signUpEmail, navigate])
 
     const handleGoogleSignUp = () => {
         dispatch(googleLogin())
-        navigate('/role')
     }
 
     const handleFacebookSignUp = () => {
         dispatch(facebookLogin())
-        navigate('/role')
     }
 
 
     const handleGithubSignUp = () => {
         dispatch(githubLogin())
-        navigate('/role')
     }
-
-
 
     return (
         <ButtonGroup sx={{
