@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import { usePostDoctorMutation, usePostRoleMutation } from '../../../Redux/features/role/roleApi';
+import { useGetHospitalQuery } from '../../../Redux/features/hospital/hospitalApi';
 
 const Doctor = () => {
 
@@ -23,6 +24,13 @@ const Doctor = () => {
         setTime(event.target.value);
     };
 
+    const [hospital, setHospital] = useState('');
+    const handleHospitalChange = (event) => {
+        setTime(event.target.value);
+    };
+
+    const { data } = useGetHospitalQuery()
+
     useEffect(() => {
         if (isSuccess) {
             toast.success('Congratulations ! Your Account Registered', {
@@ -37,6 +45,9 @@ const Doctor = () => {
             });
         }
     }, [isSuccess])
+
+    console.log(time);
+    console.log(hospital);
 
     const onSubmit = data => {
         const image = file?.file
@@ -67,17 +78,15 @@ const Doctor = () => {
                     designation: data.designation,
                     email: email,
                     phone: data.phone,
-                    hospital_name: data.hospital,
+                    hospital_name: hospital,
                     time_to_sit: time,
                     role: 'doctor'
                 }
 
                 postRole(doctorInfo)
                 postDoctor(doctorInfo)
-                console.log(doctorInfo);
             })
     };
-
 
     return (
         <Box sx={{ width: '80%', margin: '0 auto' }}>
@@ -144,15 +153,31 @@ const Doctor = () => {
                             <Alert severity="error">Phone number is required</Alert>
                         }
                     </Box>
+
                     <Box>
-                        <TextField
-                            {...register("hospital", { required: true })}
-                            fullWidth id="outlined-basic" label="Hospital Name" variant="outlined" />
+                        <FormControl fullWidth>
+                            <InputLabel id="demo-simple-select-label">Hospital Name</InputLabel>
+                            <Select
+                                {...register("hospital", { required: true })}
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={hospital}
+                                label="Hospital Name"
+                                onChange={handleHospitalChange}
+                            >
+                                {
+                                data?.map(hospital => 
+                                    <MenuItem value={hospital.name}>{hospital.name}</MenuItem>
+                                    )
+                                }
+                            </Select>
+                        </FormControl>
                         {
                             errors.hospital?.type === 'required' &&
                             <Alert severity="error">Hospital Name is required</Alert>
                         }
                     </Box>
+
                     <Box>
                         <FormControl fullWidth>
                             <InputLabel id="demo-simple-select-label">Shift Time</InputLabel>

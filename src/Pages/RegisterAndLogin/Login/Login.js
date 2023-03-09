@@ -28,7 +28,7 @@ const Login = () => {
 
     useEffect(() => {
         if (data?.role === 'doctor') {
-            navigate('/dashboard/doctor')
+            navigate('/doctor')
             toast.success('Login Successful!', {
                 position: "top-center",
                 autoClose: 5000,
@@ -41,7 +41,7 @@ const Login = () => {
             });
         }
         if (data?.role === 'hospital') {
-            navigate('/dashboard/hospital')
+            navigate('/hospital')
             toast.success('Login Successful!', {
                 position: "top-center",
                 autoClose: 5000,
@@ -54,7 +54,7 @@ const Login = () => {
             });
         }
         if (data?.role === 'pharmacy') {
-            navigate('/dashboard/pharmacy')
+            navigate('/pharmacy')
             toast.success('Login Successful!', {
                 position: "top-center",
                 autoClose: 5000,
@@ -67,7 +67,7 @@ const Login = () => {
             });
         }
         if (data?.role === 'user') {
-            navigate('/dashboard/user')
+            navigate('/user')
             toast.success('Login Successful!', {
                 position: "top-center",
                 autoClose: 5000,

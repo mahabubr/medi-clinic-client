@@ -72,8 +72,6 @@ const Hospital = () => {
 
                 postRole(hospitalInfo)
                 postHospital(hospitalInfo)
-                console.log(hospitalInfo);
-
             })
     };
 

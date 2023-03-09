@@ -28,7 +28,7 @@ const MainRegister = () => {
                 xs: 'none',
                 lg: 'block'
             }}>
-                <img style={{ height: '150vh', objectFit: 'cover' }} src="https://i.ibb.co/KGbPJWm/2645.jpg" alt="" />
+                <img style={{ height: '100vh', objectFit: 'cover' }} src="https://i.ibb.co/KGbPJWm/2645.jpg" alt="" />
             </Box>
             <Box width={{
                 xs: '100%',

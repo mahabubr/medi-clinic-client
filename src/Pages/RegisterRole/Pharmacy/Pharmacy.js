@@ -74,7 +74,6 @@ const Pharmacy = () => {
 
                 postRole(pharmacyInfo)
                 postPharmacy(pharmacyInfo)
-                console.log(pharmacyInfo);
             })
     };
 

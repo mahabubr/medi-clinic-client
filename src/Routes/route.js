@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
+import HospitalLayout from "../Layout/DashboardLayout/HospitalLayout";
 import LandingHomeLayout from "../Layout/LandingHomeLayout";
 import RoleLayout from "../Layout/RoleLayout";
+import AddRoom from "../Pages/Dashboard/Hospital/AddRoom/AddRoom";
 import LandingHome from "../Pages/LandingHome/LandingHome";
 import MainRegister from "../Pages/RegisterAndLogin/MainRegister";
 import Doctor from "../Pages/RegisterRole/Doctor/Doctor";
@@ -48,6 +50,16 @@ const router = createBrowserRouter([
                 path: '/role/user',
                 element: <User />
             },
+        ]
+    },
+    {
+        path: '/hospital',
+        element: <HospitalLayout />,
+        children: [
+            {
+                path: '/hospital',
+                element: <AddRoom />
+            }
         ]
     }
 ])

@@ -66,7 +66,6 @@ const User = () => {
 
                 postRole(userInfo)
                 postUser(userInfo)
-                console.log(userInfo);
 
             })
     };
